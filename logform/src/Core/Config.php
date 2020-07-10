@@ -8,5 +8,5 @@ class Config
     const MYSQL_USER_NAME = 'root';
     const MYSQL_PASSWORD = 'root';
     const MYSQL_DATABASE = 'logbd';
-    const MYSQL_TABLE = 'form';
+    const MYSQL_TABLE = 'group';
 }

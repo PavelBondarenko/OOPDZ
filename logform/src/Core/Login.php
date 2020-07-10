@@ -6,6 +6,7 @@ use Core\Config;
 use TexLab\MyDB\DB;
 use TexLab\MyDB\DbEntity;
 use TexLab\MyDB\QueryBuilderTrait;
+use TexLab\MyDB\Runner;
 
 class Login
 {
@@ -31,13 +32,26 @@ class Login
 //        ));
 //    }
 
-    public function userCheck2(string $login, string $password): bool
+//    public function userCheck2(string $login, string $password): bool
+//    {
+//        return !empty($this
+//            ->table
+//            ->setWhere('login="' . $login . '" AND password="' . $password . '"')
+//            ->get()
+//        );
+//    }
+
+    public function userCheck(string $login, string $password)
     {
-        return !empty($this
-            ->table
-            ->setWhere('login="' . $login . '" AND password="' . $password . '"')
-            ->get()
-        );
+
+        return $this->table->runSQL(
+            <<<SQL
+SELECT `group`.`kod` 
+FROM `group`,`users` 
+WHERE `group`.`id` = `users`.`group_id`
+AND login="$login" AND password = "$password"
+SQL
+        )[0]['kod'];
     }
 
 }
