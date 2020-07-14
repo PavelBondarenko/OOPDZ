@@ -14,8 +14,7 @@ class Login
 
     public function __construct()
     {
-        $this->table = new DbEntity(
-            Config::MYSQL_TABLE,
+        $this->table = new Runner(
             DB::Link([
                 'host' => Config::MYSQL_HOST,
                 'username' => Config::MYSQL_USER_NAME,
@@ -45,13 +44,25 @@ class Login
     {
 
         return $this->table->runSQL(
-            <<<SQL
+                <<<SQL
 SELECT `group`.`kod` 
 FROM `group`,`users` 
 WHERE `group`.`id` = `users`.`group_id`
 AND login="$login" AND password = "$password"
 SQL
-        )[0]['kod'];
+            )[0]['kod'] . "<br>";
+
+    }
+
+    public function lines()
+    {
+        echo $this->table->runSQL(
+                <<<SQL
+SELECT COUNT(*)
+FROM `group`,`users`
+SQL
+
+            )[0]['COUNT(*)'] . 'Количество стоблбцов';
     }
 
 }

@@ -3,7 +3,9 @@ include "../vendor/autoload.php";
 
 use Core\Login;
 
+
 print_r((new Login())->userCheck($_POST['login'], $_POST['password']));
+print_r((new Login())->lines());
 ?>
 
 
@@ -49,20 +51,3 @@ print_r((new Login())->userCheck($_POST['login'], $_POST['password']));
         crossorigin="anonymous"></script>
 </body>
 </html>
-
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-<!--    <title>Document</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<form action='?' method='POST'>-->
-<!--    <input name='login'>-->
-<!--    <input name='password' type='password'>-->
-<!--    <input type='submit' value='Отправить'>-->
-<!--</form>-->
-<!--</body>-->
-<!--</html>-->
