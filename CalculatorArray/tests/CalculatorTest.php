@@ -34,10 +34,10 @@ class CalculatorTest extends TestCase
         $calc = new Calculator();
 
         $this->assertEquals(
-            15,
+            [6,9],
             $calc->mulArrayInt([2, 3], 3)
         );
-        $this->assertIsInt($calc->mulArrayInt([2, 3], 3));
+        $this->assertIsArray($calc->mulArrayInt([2, 3], 3));
     }
 
 
