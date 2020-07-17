@@ -15,7 +15,7 @@ class CalculatorTest extends TestCase
             15,
             $calc->sumArray([1, 2, 3, 4, 5])
         );
-        $this->assertIsInt($calc->sumArray([1, 23, 4, 5]));
+        $this->assertIsInt($calc->sumArray([1, 2, 3, 4, 5]));
     }
 
     public function testMul()
@@ -26,7 +26,19 @@ class CalculatorTest extends TestCase
             6,
             $calc->sumArray([1, 2, 3])
         );
-        $this->assertIsInt($calc->sumArray([1, 6, 7]));
+        $this->assertIsInt($calc->sumArray([1, 2, 3]));
     }
+
+    public function testMulArray()
+    {
+        $calc = new Calculator();
+
+        $this->assertEquals(
+            15,
+            $calc->mulArrayInt([2, 3], 3)
+        );
+        $this->assertIsInt($calc->mulArrayInt([2, 3], 3));
+    }
+
 
 }

@@ -18,12 +18,10 @@ class Calculator
         return array_product($int);
     }
 
-    public function mulArrayInt(array $int, int $x)
+    public function mulArrayInt(array $int, int $x): int
     {
 
-        foreach ($int as $value) {
-            echo $value = $value * $x;
-        }
-    }
+        return array_sum($int) * $x;
 
+    }
 }
