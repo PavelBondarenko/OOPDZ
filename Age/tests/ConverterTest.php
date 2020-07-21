@@ -22,7 +22,7 @@ class CalculatorTest extends TestCase
         $age = new Converter();
 
         $this->expectException('Exception');
-        $age->convertAge(36500);
+        $age->convertAge(364244);
     }
 
 }
