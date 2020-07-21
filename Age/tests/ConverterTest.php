@@ -15,11 +15,6 @@ class ConverterTest extends TestCase
             $age->convertAge(9529)
         );
         $this->assertIsFloat($age->convertAge(9529));
-    }
-
-    public function testAge2()
-    {
-        $age = new Converter();
 
         $this->expectException('Exception');
         $age->convertAge(36442314244);
